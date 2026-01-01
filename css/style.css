@@ -521,6 +521,12 @@ button[type="submit"] {
     padding-left: 5px;
 }
 
+/* Global Overflow Fix */
+html,
+body {
+    overflow-x: hidden;
+}
+
 /* --- Mobile Responsiveness --- */
 @media (max-width: 900px) {
     .nav-menu {
@@ -532,14 +538,22 @@ button[type="submit"] {
         flex-direction: column;
         padding: 2rem;
         height: calc(100vh - 70px);
+
+        /* Robust Hiding */
         transform: translateX(100%);
-        transition: 0.3s;
+        opacity: 0;
+        visibility: hidden;
+
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         gap: 1.5rem;
         align-items: flex-start;
+        z-index: 999;
     }
 
     .nav-menu.active {
         transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
     }
 
     .nav-item-wrapper {
