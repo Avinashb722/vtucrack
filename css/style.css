@@ -543,6 +543,8 @@ body {
         transform: translateX(100%);
         opacity: 0;
         visibility: hidden;
+        pointer-events: none;
+        /* Ensure no accidental clicks */
 
         transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         gap: 1.5rem;
@@ -554,6 +556,7 @@ body {
         transform: translateX(0);
         opacity: 1;
         visibility: visible;
+        pointer-events: auto;
     }
 
     .nav-item-wrapper {
