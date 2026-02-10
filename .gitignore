@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+debug_clip.py
+final_fix.py
+fix_clip.py
+fix_clip_final.py
+fix_root_links.py
+inject_analytics.py
+update_search_index.py
+clean_links.py
+generate_sitemap.py
+improve_seo.py
+check_sitemap.py
+
+# System
+.DS_Store
+Thumbs.db
+
+# Dev
+dev_server.py
+node_modules/
+.vercel/
