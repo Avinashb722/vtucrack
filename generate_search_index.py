@@ -1,46 +1,44 @@
 import os
 import json
 import re
+from html import unescape
 
-def generate_search_index(directory):
-    html_files = [f for f in os.listdir(directory) if f.endswith(".html")]
-    search_data = []
+def generate_search_index():
+    index = []
+    print("Generating fresh search index...")
     
-    for filename in sorted(html_files):
-        if filename in ["index.html", "404.html", "error.html"]:
-            continue
-            
-        filepath = os.path.join(directory, filename)
-        with open(filepath, 'r', encoding='utf-8') as f:
-            content = f.read()
-            
-        # Extract title
-        title_match = re.search(r'<title>(.*?)</title>', content, re.IGNORECASE)
-        title = title_match.group(1).replace(" | VTUCrack", "").replace(" | vtucrack", "").strip() if title_match else filename
-        
-        # Extract description
-        desc_match = re.search(r'<meta name="description" content="(.*?)">', content, re.IGNORECASE)
-        description = desc_match.group(1).strip() if desc_match else ""
-        
-        # Extract main text content (simplified)
-        # Remove script and style tags
-        clean_content = re.sub(r'<(script|style).*?>.*?</\1>', '', content, flags=re.DOTALL | re.IGNORECASE)
-        # Remove all other tags
-        clean_content = re.sub(r'<.*?>', ' ', clean_content)
-        # Clean whitespace
-        clean_content = re.sub(r'\s+', ' ', clean_content).strip()
-        
-        search_data.append({
-            "title": title,
-            "description": description,
-            "url": filename[:-5], # cleanup .html
-            "content": clean_content[:1000] # Limit content size for search.json efficiency
-        })
-        
-    with open(os.path.join(directory, "search.json"), 'w', encoding='utf-8') as f:
-        json.dump(search_data, f, indent=2)
-        
-    print(f"Generated search.json with {len(search_data)} entries.")
+    for root, dirs, files in os.walk('.'):
+        for file in files:
+            # Skip non-subject/branch pages or system files
+            if not file.endswith('.html') or file in ['404.html', 'privacy-policy.html', 'terms-and-conditions.html', 'disclaimer.html']:
+                continue
+                
+            path = os.path.join(root, file)
+            with open(path, 'r', encoding='utf-8') as f:
+                content = f.read()
+                
+                # Extract Title
+                title_match = re.search(r'<title>(.*?)</title>', content, re.IGNORECASE)
+                title = title_match.group(1).split('|')[0].strip() if title_match else file
+                
+                # Extract Description
+                desc_match = re.search(r'<meta name="description" content="(.*?)"', content, re.IGNORECASE)
+                description = desc_match.group(1) if desc_match else ""
+                
+                # Clean URL (Vercel cleanUrls)
+                url = file.replace('.html', '')
+                if url == 'index': url = ''
+                
+                index.append({
+                    "title": unescape(title),
+                    "description": unescape(description),
+                    "url": url
+                })
+
+    with open('search.json', 'w', encoding='utf-8') as f:
+        json.dump(index, f, indent=2)
+    
+    print(f"✅ Created search.json with {len(index)} searchable pages.")
 
 if __name__ == "__main__":
-    generate_search_index(".")
+    generate_search_index()
