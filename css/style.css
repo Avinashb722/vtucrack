@@ -805,8 +805,9 @@ body {
         height: 50px;
         background: rgba(255, 255, 255, 0.05) !important;
         border: 1px solid var(--glass-border) !important;
-        border-radius: 12px !important;
-        padding: 0 15px !important;
+        border-radius: 50px !important;
+        /* Pill shape */
+        padding: 0 20px !important;
         font-size: 1rem !important;
         margin: 0 !important;
     }
@@ -872,10 +873,25 @@ body {
         border-radius: 0 !important;
     }
 
-    /* Keep text away from edge since container padding is 0 */
+    /* Card-style Search Items */
+    .search-item {
+        margin: 12px 15px !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid var(--glass-border) !important;
+        border-radius: 16px !important;
+        overflow: hidden;
+        transition: 0.2s;
+    }
+
     .search-item a {
-        padding: 16px 20px !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        padding: 15px !important;
+        display: block;
+        border-bottom: none !important;
+    }
+
+    .search-item:active {
+        transform: scale(0.98);
+        background: rgba(255, 255, 255, 0.08) !important;
     }
 
     /* Premium Scrollbar for Overlay Results */
