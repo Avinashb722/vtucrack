@@ -744,21 +744,18 @@ body {
     .search-bar {
         position: fixed;
         top: 0;
-        left: 0;
-        width: 100%;
+        left: 0 !important;
+        width: 100vw !important;
         height: 100vh;
         background: rgba(10, 10, 15, 0.99);
         backdrop-filter: blur(25px);
         -webkit-backdrop-filter: blur(25px);
         z-index: 15000 !important;
-        /* Topmost */
         display: none !important;
         flex-direction: column;
-        padding: 0;
-        align-items: flex-start;
-        border-radius: 0;
-        box-shadow: none;
-        border-bottom: none;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
     }
 
     .search-bar.active {
