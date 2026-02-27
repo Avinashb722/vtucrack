@@ -510,6 +510,12 @@ button[type="submit"] {
     font-size: 0.95rem;
 }
 
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
 .footer-links a {
     display: block;
     margin-bottom: 0.8rem;
@@ -519,6 +525,26 @@ button[type="submit"] {
 .footer-links a:hover {
     color: var(--primary);
     padding-left: 5px;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+        /* FORCED ROW AS REQUESTED */
+        gap: 15px;
+        font-size: 0.75rem;
+    }
+
+    .footer-grid h4 {
+        font-size: 0.85rem;
+    }
 }
 
 /* Global Overflow Fix */
