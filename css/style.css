@@ -854,20 +854,19 @@ body {
     }
 
     .search-results {
-        width: 100% !important;
+        width: 100vw !important;
         position: relative !important;
         top: 0 !important;
         left: 0 !important;
-        transform: none !important;
-        border-radius: 0 !important;
+        margin: 0 !important;
+        padding: 10px 0 !important;
+        /* Forces scrollbar to absolute screen edge */
         flex: 1 !important;
-        max-height: none !important;
         background: transparent !important;
         display: block !important;
-        padding: 10px 0 !important;
-        /* Forces scrollbar to absolute edge */
         overflow-y: auto !important;
         overflow-x: hidden !important;
+        border: none !important;
     }
 
     /* Keep text away from edge since container padding is 0 */
