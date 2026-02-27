@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWQDNJ2KXV"></script>
     <script>
@@ -26,61 +27,141 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="logo"><i class="fas fa-cube"></i> VTU<span class="accent">CRACK</span></a>
+            <a href="/" class="logo">
+                <i class="fas fa-cube"></i> VTU<span class="accent">CRACK</span>
+            </a>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" id="globalSearch" placeholder="Search..." autocomplete="off">
+                <button><i class="fas fa-search"></i></button>
+                <div id="searchResults" class="search-results"
+                    style="position: absolute; top: 100%; left: 0; width: 100%; background: #1a1625; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-top: 10px; display: none; z-index: 1001;">
+                </div>
+            </div>
+
             <div class="nav-menu">
                 <a href="/" class="nav-link">Home</a>
                 <a href="cse" class="nav-link">Notes</a>
                 <a href="syllabus" class="nav-link">Syllabus</a>
             </div>
+
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
-    <main class="main-content"
-        style="padding: 100px 20px; max-width: 900px; margin: 0 auto; color: #cbd5e1; line-height: 1.8;">
-        <h1 style="color: white; margin-bottom: 30px;">Disclaimer</h1>
+    <div class="breadcrumbs"
+        style="max-width: 1200px; margin: 1.5rem auto; padding: 0 20px; font-size: 0.9rem; color: var(--text-muted);">
+        <a href="/">Home</a> / Disclaimer
+    </div>
 
-        <p>The information provided by VTUCrack (www.vtucrack.com) is for general educational and informational purposes
-            only. All information on the Site is provided in good faith, however, we make no representation or warranty
-            of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, or completeness of
-            any information on the Site.</p>
+    <main class="main-content">
+        <div class="page-header" style="text-align: center; margin-bottom: 50px;">
+            <h1 style="font-size: 3.5rem; margin-bottom: 10px;">Legal <span class="accent">Disclaimer</span></h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">Last updated: February 27, 2026</p>
+        </div>
 
-        <h3 style="color: white; margin-top: 30px;">1. University Affiliation</h3>
-        <p>VTUCrack is an independent educational portal. We are <strong>NOT</strong> affiliated with, authorized,
-            maintained, sponsored, or endorsed by Visvesvaraya Technological University (VTU) or any other official
-            government body. "VTU" is a registered trademark of the respective university.</p>
+        <div class="glass-card"
+            style="padding: 50px; max-width: 900px; margin: 0 auto; line-height: 1.8; color: var(--text-muted);">
+            <p style="font-size: 1.1rem; color: white; margin-bottom: 30px;">
+                The information provided by <strong>VTUCrack</strong> (www.vtucrack.com) is for general educational and
+                informational purposes only.
+            </p>
 
-        <h3 style="color: white; margin-top: 30px;">2. External Links Disclaimer</h3>
-        <p>The Site may contain links to other websites or content belonging to or originating from third parties. Such
-            external links are not investigated, monitored, or checked for accuracy, adequacy, reliability, or
-            completeness by us. We do not warrant, endorse, guarantee, or assume responsibility for any information
-            offered by third-party websites linked through the site.</p>
+            <section style="margin-bottom: 40px;">
+                <h3
+                    style="color: white; border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 15px;">
+                    1. University Affiliation</h3>
+                <p>VTUCrack is an independent educational portal. We are <strong>NOT</strong> affiliated with,
+                    authorized, or endorsed by Visvesvaraya Technological University (VTU). All university names and
+                    trademarks are the property of their respective owners.</p>
+            </section>
 
-        <h3 style="color: white; margin-top: 30px;">3. Professional Disclaimer</h3>
-        <p>The academic resources provided (notes, model papers, manuals) are meant for supplementary study. Users
-            should always consult official university textbooks and notifications for absolute accuracy. We are not
-            responsible for any academic loss or exam performance resulting from the use of our materials.</p>
+            <section style="margin-bottom: 40px;">
+                <h3
+                    style="color: white; border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 15px;">
+                    2. Accuracy of Information</h3>
+                <p>We make every effort to ensure the accuracy of notes and syllabus information. However, we assume no
+                    liability for errors or omissions. Students are advised to verify all critical information with
+                    official university notifications.</p>
+            </section>
 
-        <h3 style="color: white; margin-top: 30px;">4. Errors and Omissions</h3>
-        <p>Despite our best efforts to ensure that the information on this website is correct, VTUCrack is not
-            responsible for any errors or omissions, or for the results obtained from the use of this information.</p>
+            <section style="margin-bottom: 40px;">
+                <h3
+                    style="color: white; border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 15px;">
+                    3. Academic Resources</h3>
+                <p>The academic resources (notes, manuals, question papers) provided here are supplementary materials.
+                    They are intended to assist students in their studies but should not be considered a substitute for
+                    the official curriculum or classroom attendance.</p>
+            </section>
 
-        <h3 style="color: white; margin-top: 30px;">5. Fair Use Notice</h3>
-        <p>This site contains copyrighted material whose use has not always been specifically authorized by the
-            copyright owner. We are making such material available in our efforts to advance understanding of
-            engineering education. We believe this constitutes a 'fair use' of any such copyrighted material as provided
-            for in section 107 of the US Copyright Law and similar provisions in Indian Copyright Law.</p>
+            <section style="margin-bottom: 40px;">
+                <h3
+                    style="color: white; border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 15px;">
+                    4. External Links Disclaimer</h3>
+                <p>The Site may contain links to third-party websites (Google Drive, Odoo, etc.). We do not warrant,
+                    endorse, or assume responsibility for the accuracy or reliability of any information offered by
+                    third-party websites linked through our site.</p>
+            </section>
 
-        <p style="margin-top: 50px;">Last updated: February 27, 2026</p>
+            <div
+                style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 12px; margin-top: 50px; border: 1px solid var(--glass-border);">
+                <p style="margin-bottom: 0;">By using this website, you agree to this disclaimer in full. Responsibility
+                    for any decisions made based on this information lies solely with the user.</p>
+            </div>
+        </div>
     </main>
 
     <footer class="site-footer">
         <div class="nav-container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo" style="margin-bottom:20px;">VTU<span class="accent">CRACK</span></div>
+                    <p style="color:#666;">Crafted with ❤️ for VTU Students.</p>
+                </div>
+                <div>
+                    <h4 style="color:white; margin-bottom:15px;">Resources</h4>
+                    <div class="footer-links">
+                        <a href="cse">CSE Notes</a>
+                        <a href="lab">Lab Manuals</a>
+                        <a href="syllabus">Syllabus</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:white; margin-bottom:15px;">Tools</h4>
+                    <div class="footer-links">
+                        <a href="sgpa-calculator">SGPA Calc</a>
+                        <a href="cgpa-calculator">CGPA Calc</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:white; margin-bottom:15px;">Legal</h4>
+                    <div class="footer-links">
+                        <a href="privacy-policy">Privacy Policy</a>
+                        <a href="terms-and-conditions">Terms & Conditions</a>
+                        <a href="disclaimer">Disclaimer</a>
+                        <a href="contactus">Contact Us</a>
+                    </div>
+                </div>
+            </div>
             <div
-                style="text-align: center; color: #666; font-size: 0.9rem; padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.05);">
-                &copy; 2026 VTUCrack. Educational Resources for Students.
+                style="border-top: 1px solid rgba(255,255,255,0.05); margin-top: 60px; padding-top: 30px; text-align: center; color: #666; font-size: 0.9rem;">
+                &copy; 2026 VTUCrack. Video & Text Solutions.
             </div>
         </div>
     </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 
 </html>

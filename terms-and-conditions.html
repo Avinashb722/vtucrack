@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWQDNJ2KXV"></script>
     <script>
@@ -26,64 +27,148 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="logo"><i class="fas fa-cube"></i> VTU<span class="accent">CRACK</span></a>
+            <a href="/" class="logo">
+                <i class="fas fa-cube"></i> VTU<span class="accent">CRACK</span>
+            </a>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" id="globalSearch" placeholder="Search terms..." autocomplete="off">
+                <button><i class="fas fa-search"></i></button>
+                <div id="searchResults" class="search-results"
+                    style="position: absolute; top: 100%; left: 0; width: 100%; background: #1a1625; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-top: 10px; display: none; z-index: 1001;">
+                </div>
+            </div>
+
             <div class="nav-menu">
                 <a href="/" class="nav-link">Home</a>
                 <a href="cse" class="nav-link">Notes</a>
                 <a href="syllabus" class="nav-link">Syllabus</a>
             </div>
+
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
-    <main class="main-content"
-        style="padding: 100px 20px; max-width: 900px; margin: 0 auto; color: #cbd5e1; line-height: 1.8;">
-        <h1 style="color: white; margin-bottom: 30px;">Terms and Conditions</h1>
-        <p>Welcome to VTUCrack (www.vtucrack.com). By accessing this website, you agree to be bound by these Terms and
-            Conditions. If you disagree with any part of these terms, please do not use our website.</p>
+    <div class="breadcrumbs"
+        style="max-width: 1200px; margin: 1.5rem auto; padding: 0 20px; font-size: 0.9rem; color: var(--text-muted);">
+        <a href="/">Home</a> / Terms & Conditions
+    </div>
 
-        <h3 style="color: white; margin-top: 30px;">1. Intellectual Property</h3>
-        <p>The content provided on this website, including but not limited to text, graphics, logos, and software, is
-            the property of VTUCrack or its content suppliers. Academic materials (notes, question papers) are shared
-            for educational purposes only. Users are granted a limited license to download materials for personal,
-            non-commercial use.</p>
+    <main class="main-content">
+        <div class="page-header" style="text-align: center; margin-bottom: 50px;">
+            <h1 style="font-size: 3.5rem; margin-bottom: 10px;">Terms & <span class="accent">Conditions</span></h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">Last updated: February 27, 2026</p>
+        </div>
 
-        <h3 style="color: white; margin-top: 30px;">2. User Obligations</h3>
-        <p>Users agree not to use the website for any unlawful purposes or to engage in behavior that could damage,
-            disable, or impair the website's functionality. Unauthorized scraping or mass-downloading of content is
-            strictly prohibited.</p>
+        <div class="glass-card"
+            style="padding: 50px; max-width: 900px; margin: 0 auto; line-height: 1.8; color: var(--text-muted);">
+            <p style="font-size: 1.1rem; color: white; margin-bottom: 30px;">
+                Welcome to <strong>VTUCrack</strong> (www.vtucrack.com). By accessing this website, you agree to be
+                bound by these Terms and Conditions. If you disagree with any part, please do not use our services.
+            </p>
 
-        <h3 style="color: white; margin-top: 30px;">3. No Warranties</h3>
-        <p>While we strive for accuracy, all materials on VTUCrack are provided "as is" without any warranties. We do
-            not guarantee that the educational resources will always be accurate, complete, or up-to-date.</p>
+            <section style="margin-bottom: 40px;">
+                <h3
+                    style="color: white; border-left: 4px solid var(--secondary); padding-left: 15px; margin-bottom: 15px;">
+                    1. Intellectual Property</h3>
+                <p>The content provided on this website, including text, graphics, and logo, is the property of
+                    VTUCrack. Academic materials such as notes and question papers are shared for educational purposes.
+                    You are granted a limited license to download materials for personal, non-commercial use only.</p>
+            </section>
 
-        <h3 style="color: white; margin-top: 30px;">4. Limitation of Liability</h3>
-        <p>VTUCrack shall not be liable for any direct, indirect, or consequential damages resulting from the use or
-            inability to use our services or the content provided herein.</p>
+            <section style="margin-bottom: 40px;">
+                <h3
+                    style="color: white; border-left: 4px solid var(--secondary); padding-left: 15px; margin-bottom: 15px;">
+                    2. User Obligations</h3>
+                <p>You agree not to use VTUCrack for any unlawful purpose. Unauthorized scraping, automated data
+                    collection, or mass-downloading of content is strictly prohibited and may result in a permanent IP
+                    block.</p>
+            </section>
 
-        <h3 style="color: white; margin-top: 30px;">5. Third-Party Links</h3>
-        <p>Our website may contain links to third-party services (e.g., Google Drive, AdSense partners) that are not
-            owned or controlled by VTUCrack. We have no control over, and assume no responsibility for, the content or
-            privacy policies of any third-party sites.</p>
+            <section style="margin-bottom: 40px;">
+                <h3
+                    style="color: white; border-left: 4px solid var(--secondary); padding-left: 15px; margin-bottom: 15px;">
+                    3. No Warranties</h3>
+                <p>While we strive for accuracy, all materials on VTUCrack are provided "as is" without any warranties.
+                    We do not guarantee that resources will be 100% accurate, complete, or up-to-date at all times.</p>
+            </section>
 
-        <h3 style="color: white; margin-top: 30px;">6. Governing Law</h3>
-        <p>These terms are governed by the laws of India. Any disputes arising from the use of this website shall be
-            subject to the exclusive jurisdiction of the courts in Karnataka, India.</p>
+            <section style="margin-bottom: 40px;">
+                <h3
+                    style="color: white; border-left: 4px solid var(--secondary); padding-left: 15px; margin-bottom: 15px;">
+                    4. Limitation of Liability</h3>
+                <p>VTUCrack shall not be liable for any direct or indirect damages resulting from the use or inability
+                    to use our services or the academic content provided herein.</p>
+            </section>
 
-        <h3 style="color: white; margin-top: 30px;">7. Changes to Terms</h3>
-        <p>We reserve the right to modify these terms at any time. Your continued use of the site following any changes
-            signifies your acceptance of the new terms.</p>
+            <section style="margin-bottom: 40px;">
+                <h3
+                    style="color: white; border-left: 4px solid var(--secondary); padding-left: 15px; margin-bottom: 15px;">
+                    5. Governing Law</h3>
+                <p>These terms are governed by the laws of India. Any disputes arising from the use of this website
+                    shall be subject to the exclusive jurisdiction of the courts in Karnataka, India.</p>
+            </section>
 
-        <p style="margin-top: 50px;">Last updated: February 27, 2026</p>
+            <div
+                style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 12px; margin-top: 50px; border: 1px solid var(--glass-border);">
+                <p style="margin-bottom: 0;">By using our site, you acknowledge that you have read and understood these
+                    terms.</p>
+            </div>
+        </div>
     </main>
 
     <footer class="site-footer">
         <div class="nav-container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo" style="margin-bottom:20px;">VTU<span class="accent">CRACK</span></div>
+                    <p style="color:#666;">Crafted with ❤️ for VTU Students.</p>
+                </div>
+                <div>
+                    <h4 style="color:white; margin-bottom:15px;">Resources</h4>
+                    <div class="footer-links">
+                        <a href="cse">CSE Notes</a>
+                        <a href="lab">Lab Manuals</a>
+                        <a href="syllabus">Syllabus</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:white; margin-bottom:15px;">Tools</h4>
+                    <div class="footer-links">
+                        <a href="sgpa-calculator">SGPA Calc</a>
+                        <a href="cgpa-calculator">CGPA Calc</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color:white; margin-bottom:15px;">Legal</h4>
+                    <div class="footer-links">
+                        <a href="privacy-policy">Privacy Policy</a>
+                        <a href="terms-and-conditions">Terms & Conditions</a>
+                        <a href="disclaimer">Disclaimer</a>
+                        <a href="contactus">Contact Us</a>
+                    </div>
+                </div>
+            </div>
             <div
-                style="text-align: center; color: #666; font-size: 0.9rem; padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.05);">
-                &copy; 2026 VTUCrack. Educational Resources for Students.
+                style="border-top: 1px solid rgba(255,255,255,0.05); margin-top: 60px; padding-top: 30px; text-align: center; color: #666; font-size: 0.9rem;">
+                &copy; 2026 VTUCrack. Video & Text Solutions.
             </div>
         </div>
     </footer>
+
+    <script>
+        // Basic Navigation JS
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 
 </html>
