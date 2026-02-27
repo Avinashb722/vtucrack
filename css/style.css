@@ -22,6 +22,7 @@
     box-sizing: border-box;
 }
 
+html,
 body {
     background-color: var(--bg-dark);
     background-image:
@@ -34,6 +35,7 @@ body {
     padding: 0;
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
 }
 
 /* Custom Scrollbar */
@@ -79,6 +81,8 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .logo {
@@ -106,6 +110,12 @@ a {
 .search-bar {
     position: relative;
     width: 320px;
+    display: flex;
+    align-items: center;
+}
+
+.mobile-header-wrap {
+    display: contents;
 }
 
 .search-bar input {
@@ -117,6 +127,8 @@ a {
     color: white;
     font-family: var(--font-main);
     transition: 0.3s;
+    margin-bottom: 0 !important;
+    /* Forces vertical alignment */
 }
 
 .search-bar input:focus {
@@ -126,7 +138,8 @@ a {
     background: rgba(255, 255, 255, 0.05);
 }
 
-.search-bar button {
+.search-bar button,
+.search-submit-btn {
     position: absolute;
     right: 15px;
     top: 50%;
@@ -295,10 +308,14 @@ a {
     transform: translateX(5px);
 }
 
-.menu-toggle {
+/* Global Hidden Elements (Desktop Defaults) */
+.menu-toggle,
+.mobile-search-btn,
+.search-close-btn {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
+    color: white;
 }
 
 /* --- Hero Section --- */
@@ -678,16 +695,20 @@ body {
         transform: translateX(100%);
         opacity: 0;
         visibility: hidden;
+        display: none;
+        /* Block layout expansion */
         pointer-events: none;
         /* Ensure no accidental clicks */
 
         transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         gap: 1.5rem;
         align-items: flex-start;
-        z-index: 999;
+        z-index: 1100;
+        /* Mobile menu layer */
     }
 
     .nav-menu.active {
+        display: flex;
         transform: translateX(0);
         opacity: 1;
         visibility: visible;
@@ -715,12 +736,163 @@ body {
     }
 
     .menu-toggle {
-        display: block;
-        color: white;
+        display: block !important;
+        font-size: 1.6rem;
+        z-index: 1101;
     }
 
     .search-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(10, 10, 15, 0.99);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        z-index: 15000 !important;
+        /* Topmost */
+        display: none !important;
+        flex-direction: column;
+        padding: 0;
+        align-items: flex-start;
+        border-radius: 0;
+        box-shadow: none;
+        border-bottom: none;
+    }
+
+    .search-bar.active {
+        display: flex !important;
+        animation: searchFadeIn 0.3s ease-out;
+    }
+
+    @keyframes searchFadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Mobile Search Header */
+    .search-bar .mobile-header-wrap {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid var(--glass-border);
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .search-bar.active {
+        display: flex !important;
+        animation: searchSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes searchSlide {
+        from {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .search-bar input {
+        flex: 1;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid var(--glass-border) !important;
+        border-radius: 12px !important;
+        padding: 0 15px !important;
+        font-size: 1rem !important;
+        margin: 0 !important;
+    }
+
+    .search-bar button:not(.search-close-btn) {
         display: none;
+        /* Hide desktop search button in mobile overlay */
+    }
+
+    .mobile-search-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: 15px;
+        color: white;
+        font-size: 1.3rem;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--glass);
+        transition: 0.3s;
+    }
+
+    .search-close-btn {
+        display: flex !important;
+        position: static !important;
+        /* Override absolute positioning from desktop */
+        transform: none !important;
+        background: var(--glass) !important;
+        border: 1px solid var(--glass-border) !important;
+        color: white !important;
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem !important;
+        margin-left: 10px !important;
+        cursor: pointer;
+    }
+
+    .search-results {
+        width: 100% !important;
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        border-radius: 0 !important;
+        flex: 1 !important;
+        max-height: none !important;
+        background: transparent !important;
+        display: block !important;
+        padding: 10px 0 !important;
+        /* Forces scrollbar to absolute edge */
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Keep text away from edge since container padding is 0 */
+    .search-item a {
+        padding: 16px 20px !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    /* Premium Scrollbar for Overlay Results */
+    .search-results::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .search-results::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 0;
+        /* Square edge for "Full Last" look */
+    }
+
+    .search-results::-webkit-scrollbar-track {
+        background: transparent !important;
+    }
+
+    .search-results:not(:empty) {
+        display: block !important;
     }
 
     .hero h1 {
