@@ -403,7 +403,7 @@ a {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
     margin-top: 2rem;
 }
 
@@ -681,6 +681,25 @@ body {
 
 /* --- Mobile Responsiveness --- */
 @media (max-width: 900px) {
+
+    /* --- SEO-Safe 640px Density --- */
+    :root {
+        font-size: 14px;
+        /* Makes 100vw feel like 640px content density */
+    }
+
+    .main-content,
+    .content-wrapper,
+    .breadcrumbs {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .container,
+    header {
+        padding: 0 12px;
+    }
+
     .nav-menu {
         position: fixed;
         top: 70px;
