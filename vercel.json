@@ -16,6 +16,21 @@
             "source": "/:path+.html",
             "destination": "/:path+",
             "permanent": true
+        },
+        {
+            "source": "/renewable-energy-power-plants-bme654b-1",
+            "destination": "/renewable-energy-power-plants-bme654b",
+            "permanent": true
+        },
+        {
+            "source": "/website/info",
+            "destination": "/about-us",
+            "permanent": true
+        },
+        {
+            "source": "/n",
+            "destination": "/",
+            "permanent": true
         }
     ],
     "headers": [

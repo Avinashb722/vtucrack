@@ -5,8 +5,8 @@ with open('sitemap.xml', 'r', encoding='utf-8') as f:
     content = f.read()
 
 # Remove .html from all URLs
-# Pattern: <loc>https://vtucrack.vercel.app/something.html</loc>
-# Replace with: <loc>https://vtucrack.vercel.app/something</loc>
+# Pattern: <loc>https://www.vtucrack.com/something.html</loc>
+# Replace with: <loc>https://www.vtucrack.com/something</loc>
 content = re.sub(r'(https://vtucrack\.vercel\.app/[^<]+)\.html', r'\1', content)
 
 # Write back
