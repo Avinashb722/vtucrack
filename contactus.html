@@ -250,23 +250,30 @@
             <!-- Contact form card -->
             <div class="glass-card" style="padding: 35px;">
                 <form id="contactForm" onsubmit="handleContact(event)">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_subject" id="dynamicSubject" value="New VTUCrack Message">
+
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <div class="form-group">
                             <label>Full Name</label>
-                            <input type="text" id="name" placeholder="John Doe" required>
+                            <input type="text" name="name" id="name" placeholder="Avinash Biradar" required>
                         </div>
                         <div class="form-group">
                             <label>Email Address</label>
-                            <input type="email" id="email" placeholder="john@example.com" required>
+                            <input type="email" name="email" id="email" placeholder="avinash@example.com" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Subject</label>
-                        <input type="text" id="subject" placeholder="Notes Request / Feedback" required>
+                        <input type="text" name="subject" id="subject" placeholder="Notes Request / Feedback" required
+                            onchange="document.getElementById('dynamicSubject').value = 'VTUCrack: ' + this.value">
                     </div>
                     <div class="form-group">
                         <label>Your Message</label>
-                        <textarea id="message" rows="5" placeholder="How can we help you today?" required></textarea>
+                        <textarea name="message" id="message" rows="5" placeholder="How can we help you today?"
+                            required></textarea>
                     </div>
 
                     <button type="submit" id="submitBtn" class="btn-glow"
@@ -281,34 +288,46 @@
         </div>
 
         <script>
-            function handleContact(event) {
+            async function handleContact(event) {
                 event.preventDefault();
                 const btn = document.getElementById('submitBtn');
                 const status = document.getElementById('formStatus');
-                const name = document.getElementById('name').value;
-                const subject = document.getElementById('subject').value;
-                const message = document.getElementById('message').value;
+                const form = event.target;
 
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending to Inbox...';
                 btn.disabled = true;
 
-                // Simulate processing
-                setTimeout(() => {
-                    // Actual implementation: Redirection to mailto as a fallback for static sites
-                    const mailtoUrl = `mailto:vtucrack96@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Name: " + name + "\\n\\n" + message)}`;
+                const formData = new FormData(form);
 
+                try {
+                    const response = await fetch("https://formsubmit.co/ajax/vtucrack96@gmail.com", {
+                        method: "POST",
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        status.style.display = 'block';
+                        status.style.background = 'rgba(82, 196, 26, 0.1)';
+                        status.style.border = '1px solid rgba(82, 196, 26, 0.3)';
+                        status.style.color = '#52c41a';
+                        status.innerHTML = '<strong>Message Sent!</strong> We will get back to you soon.';
+                        form.reset();
+                    } else {
+                        throw new Error('Failed');
+                    }
+                } catch (error) {
                     status.style.display = 'block';
-                    status.style.background = 'rgba(82, 196, 26, 0.1)';
-                    status.style.border = '1px solid rgba(82, 196, 26, 0.3)';
-                    status.style.color = '#52c41a';
-                    status.innerHTML = '<strong>Success!</strong> Preparing your email client...';
-
-                    // Open mail client
-                    window.location.href = mailtoUrl;
-
+                    status.style.background = 'rgba(255, 77, 79, 0.1)';
+                    status.style.border = '1px solid rgba(255, 77, 79, 0.3)';
+                    status.style.color = '#ff4d4f';
+                    status.innerHTML = '<strong>Error!</strong> Please email us directly at vtucrack96@gmail.com';
+                } finally {
                     btn.innerHTML = 'Send Message <i class="fas fa-paper-plane" style="margin-left: 10px;"></i>';
                     btn.disabled = false;
-                }, 1000);
+                }
             }
         </script>
     </main>
