@@ -2,8 +2,8 @@ import os
 import re
 
 def update_viewport(directory):
-    pattern = re.compile(r'<meta\s+name=["\']viewport["\']\s+content=["\']width=640px,\s*initial-scale=1\.0["\']\s*/?>', re.IGNORECASE)
-    replacement = '<meta name="viewport" content="width=640">'
+    pattern = re.compile(r'<meta\s+name=["\']viewport["\']\s+content=["\']width=640["\']\s*/?>', re.IGNORECASE)
+    replacement = '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
     
     for root, dirs, files in os.walk(directory):
         for file in files:
