@@ -143,21 +143,27 @@ a {
     top: calc(100% + 15px);
     left: 50%;
     transform: translateX(-50%);
-    width: 380px;
+    width: 385px;
     max-width: 95vw;
-    background: rgba(15, 15, 25, 0.98);
+    background: rgba(13, 13, 18, 0.98);
+    /* Slightly darker for better contrast */
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
-    max-height: 500px;
+    max-height: 480px;
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 2000;
     display: none;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
-    padding: 12px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+    padding: 20px 10px;
+    /* Increased vertical padding to keep items inside */
     animation: searchFade 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Ensure content is clipped within rounded corners */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
 }
 
 @keyframes searchFade {
