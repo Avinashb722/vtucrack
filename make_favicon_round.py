@@ -4,7 +4,7 @@ def make_circle_with_padding(
     image_path,
     output_path,
     canvas_size=512,
-    scale=1.14   # ⬅️ Increased size (was 0.75)
+    scale=1.15   # ⬅️ Increased size (was 0.75)
 ):
     # Open image
     img = Image.open(image_path).convert("RGBA")
