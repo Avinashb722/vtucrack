@@ -28,7 +28,7 @@
     <!-- Favicon -->
     <!-- Verification -->
     <meta name="google-site-verification" content="3SJi3Oh_y-uCvsoy7z_ekaJufcdc6bm4ThdwFn3vVvY" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=1.5">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -54,12 +54,16 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="/" class="logo">
-                <i class="fas fa-cube"></i> VTU<span class="accent">CRACK</span>
+                <i class="fas fa-cube"></i>VTU<span class="accent">CRACK</span>
             </a>
             <!-- Search Bar -->
-            <div class="search-bar">
-                <input type="text" id="globalSearch" placeholder="Search entire site..." autocomplete="off">
-                <button><i class="fas fa-search"></i></button>
+            <div class="search-bar" id="searchBar">
+                <div class="mobile-header-wrap">
+                    <input type="text" id="globalSearch" placeholder="Search entire site..." autocomplete="off">
+                    <button class="search-submit-btn"><i class="fas fa-search"></i></button>
+                    <button class="search-close-btn" onclick="toggleMobileSearch()"><i
+                            class="fas fa-times"></i></button>
+                </div>
                 <div id="searchResults" class="search-results"></div>
             </div>
             <div class="nav-menu">
@@ -99,6 +103,10 @@
                         <a href="request" class="dropdown-item">Request Notes</a>
                     </div>
                 </div>
+            </div>
+            <!-- Mobile Search Icon -->
+            <div class="mobile-search-btn" onclick="toggleMobileSearch()">
+                <i class="fas fa-search"></i>
             </div>
             <div class="menu-toggle">
                 <i class="fas fa-bars"></i>
@@ -383,9 +391,10 @@
                 filtered.forEach(item => {
                     const div = document.createElement('div');
                     div.className = 'search-item';
-                    div.innerHTML = `<a href="${item.url}">
-                        <strong>${item.title}</strong>
-                        <small>${item.description.substring(0, 60)}...</small>
+                    const displayTitle = item.title.replace(' | VTUCrack', '');
+                    div.innerHTML = `<a href="/${item.url}">
+                        <strong>${displayTitle}</strong>
+                        <small>${item.description.replace(/VTUCrack/g, '').substring(0, 65)}...</small>
                     </a>`;
                     searchResults.appendChild(div);
                 });
@@ -421,6 +430,21 @@
                 }
             });
         });
+
+        // Mobile Search Toggle
+        function toggleMobileSearch() {
+            const searchBar = document.getElementById('searchBar');
+            searchBar.classList.toggle('active');
+
+            if (searchBar.classList.contains('active')) {
+                setTimeout(() => {
+                    document.getElementById('globalSearch').focus();
+                }, 100);
+            } else {
+                document.getElementById('globalSearch').value = '';
+                document.getElementById('searchResults').innerHTML = '';
+            }
+        }
     </script>
 </body>
 
